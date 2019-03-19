@@ -1,24 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= render @product %>
 
-<p>
-  <strong>Product name:</strong>
-  <%= @product.product_name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @product.quantity %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
+<%# <%= link_to 'Edit', edit_product_path(@product) %>
 <%= link_to 'Back', products_path %>
