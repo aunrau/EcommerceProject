@@ -15,4 +15,6 @@ Product.destroy_all
         price: Faker::Commerce.price(range = 0.00..999999.99, as_string = false),
         quantity: Faker::Number.between(0, 20)
     )
-endAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+end
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
