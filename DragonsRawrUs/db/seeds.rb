@@ -7,14 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Product.destroy_all
+AdminUser.destroy_all
 
-10.times do
-    Product.create(
-        product_name: Faker::Games::ElderScrolls.unique.dragon,
-        description: Faker::Games::ElderScrolls.race,
-        price: Faker::Commerce.price(range = 0.00..999999.99, as_string = false),
-        quantity: Faker::Number.between(0, 20)
-    )
-end
+# 10.times do
+#     category = Category.create(product_name: Faker::.....unique.style)
+    10.times do
+        # category.products.create(
+        Product.create(
+            product_name: Faker::Games::ElderScrolls.unique.dragon,
+            description: Faker::Games::ElderScrolls.race,
+            price: Faker::Commerce.price(range = 7000..999999.99, as_string = false),
+            quantity: Faker::Number.between(0, 20)
+        )
+    end
+# end
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
