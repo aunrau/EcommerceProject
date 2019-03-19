@@ -4,6 +4,9 @@
     <p>Product Description: <%= product.description %></p>
     <p>Price: <%= number_to_currency product.price %></p>
     <p>Quantity: <%= product.quantity %></p>
+    <% if product.image? %>
+      <p><%= image_tag product.image.thumb.url %></p>
+      <% end %>
   </div>
 
   <%= link_to 'Show', product %>
