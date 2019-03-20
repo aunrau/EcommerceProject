@@ -9,17 +9,16 @@
 Product.destroy_all
 AdminUser.destroy_all
 
-# 10.times do
-#     category = Category.create(product_name: Faker::.....unique.style)
-    10.times do
-        # category.products.create(
-        Product.create(
-            product_name: Faker::Games::ElderScrolls.unique.dragon,
-            description: Faker::Games::ElderScrolls.race,
+12.times do
+    category = Category.create(name: Faker::Games::ElderScrolls.unique.race)
+    3.times do
+        category.products.create(
+            product_name: Faker::Games::ElderScrolls.unique.first_name,
+            description: Faker::Games::ElderScrolls.dragon,
             price: Faker::Commerce.price(range = 7000..999999.99, as_string = false),
             quantity: Faker::Number.between(0, 20)
         )
     end
-# end
+end
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

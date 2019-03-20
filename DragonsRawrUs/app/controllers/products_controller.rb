@@ -8,6 +8,11 @@ class ProductsController < ApplicationController
     # @products = Product.order('id DESC')
   end
 
+  def search
+    @category = Category.find(params[:category_id])
+    @products = @category.products
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show
