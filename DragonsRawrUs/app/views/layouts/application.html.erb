@@ -16,6 +16,9 @@
       <%= submit_tag("Search") %>
     <% end %>
 
+    <div class="control select">
+            <%= select_tag "search_option", "<option>Categories</option><option>School</option>".html_safe %>
+          </div>
     <%= yield %>
   </body>
 </html>
