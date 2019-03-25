@@ -15,9 +15,10 @@
       <%= text_field_tag(:q) %>
       <%= submit_tag("Search") %>
     <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
 
+    <div class="control select">
+            <%= select_tag "search_option", "<option>Categories</option><option>School</option>".html_safe %>
+          </div>
+    <%= yield %>
   </body>
 </html>
