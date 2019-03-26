@@ -10,16 +10,25 @@
   </head>
 
   <body>
-    <p class="navbar">
+  <header>
+   <h1>Welcome to Dragons Rawr Us</h1>
+   <nav>
+     <ul>
+    <%# ?<p class="navbar"> %>
       <% if customer_signed_in? %>
         Logged in as <strong><%= current_customer.email %></strong>.
-        <%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-item' %>
-        <%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-item'  %>
+        <li><%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-item' %></li>
+        <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-item'  %></li>
       <% else %>
-        <%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-item' %>
-        <%= link_to "Login", new_customer_session_path, :class => 'navbar-item'  %>
+        <li><%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-item' %></li>
+        <li><%= link_to "Login", new_customer_session_path, :class => 'navbar-item'  %><li>
       <% end %>
-    </p>
+      <li><%= link_to "About Us", static_path(permalink: 'about-us') %></li>
+      <li><%= link_to "Contact", static_path(permalink: 'contact') %></li>
+      </ul>
+    </nav>
+  </header>
+    <%# </p> %>
     <%# <ul class="nav">
       <li class="active"><a href="/products">Products</a></li>
     </ul> %>
