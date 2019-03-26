@@ -10,29 +10,24 @@
   </head>
 
   <body>
-
-<p class="navbar-text pull-right">
-<% if customer_signed_in? %>
-  Logged in as <strong><%= current_customer.email %></strong>.
-  <%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_customer_session_path, :class => 'navbar-link'  %>
-<% end %>
-</p>
-<ul class="nav">
-  <li class="active"><a href="/products">Products</a></li>
-</ul>
-    <%= form_tag(search_results_path, method: "get") do %>
-      <%= label_tag(:q, "Search for:") %>
-      <%= text_field_tag(:q) %>
-      <%= submit_tag("Search") %>
-    <% end %>
-
+    <p class="navbar-brand">
+      <% if customer_signed_in? %>
+        Logged in as <strong><%= current_customer.email %></strong>.
+        <%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_customer_session_path, :class => 'navbar-link'  %>
+      <% end %>
+    </p>
+    <%# <ul class="nav">
+      <li class="active"><a href="/products">Products</a></li>
+    </ul> %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= link_to "Sign Up", new_customer_registration_path %>
+
+
     <%= yield %>
   </body>
 </html>
