@@ -10,24 +10,37 @@
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Dragons Rawr Us</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" <%= link_to "Home", root_path %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" <%= link_to "About Us", static_path(permalink: 'about-us') %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" <%= link_to "Contact", static_path(permalink: 'contact') %></a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <% if customer_signed_in? %>
+          Logged in as <strong><%= current_customer.email %></strong>.
+          <li><%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %></li>
+          <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-item'  %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-item' %></li>
+          <li><%= link_to "Login", new_customer_session_path, :class => 'navbar-item'  %><li>
+        <% end %>
+      </span>
+    </div>
+  </nav>
   <header>
    <h1>Welcome to Dragons Rawr Us</h1>
-   <nav>
-     <ul>
-    <%# ?<p class="navbar"> %>
-      <% if customer_signed_in? %>
-        Logged in as <strong><%= current_customer.email %></strong>.
-        <li><%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-item' %></li>
-        <li><%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-item'  %></li>
-      <% else %>
-        <li><%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-item' %></li>
-        <li><%= link_to "Login", new_customer_session_path, :class => 'navbar-item'  %><li>
-      <% end %>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About Us", static_path(permalink: 'about-us') %></li>
-      <li><%= link_to "Contact", static_path(permalink: 'contact') %></li>
-      </ul>
-    </nav>
   </header>
     <%# </p> %>
     <%# <ul class="nav">
