@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+  devise_for :customers
+   devise_scope :customer do
+    get '/login' => 'devise/sessions#new'
+    get '/logout' => 'devise/sessions#destroy'
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :orders
-  resources :customers
+  # resources :customers
   resources :products
   resources :search
 
+  # get 'customers/:id' => 'customers#show', as: :customer
   get 'search_results', to: 'search#results', as: 'search_results'
 
   root to: 'products#index'

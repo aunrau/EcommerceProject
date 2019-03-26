@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  # before_action :authenticate_customer!, except: [:index, :show]
 
   # GET /orders
   # GET /orders.json
@@ -14,7 +15,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
+    # @order = Order.new
+    @order = current_customer.orders.build
   end
 
   # GET /orders/1/edit
@@ -24,7 +26,8 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = current_customer.orders.build(order_params)
+    # @order = Order.new(order_params)
 
     respond_to do |format|
       if @order.save
