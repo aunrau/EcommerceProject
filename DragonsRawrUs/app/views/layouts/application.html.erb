@@ -10,14 +10,14 @@
   </head>
 
   <body>
-    <p class="navbar-brand">
+    <p class="navbar">
       <% if customer_signed_in? %>
         Logged in as <strong><%= current_customer.email %></strong>.
-        <%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-link'  %>
+        <%= link_to 'Edit profile', edit_customer_registration_path, :class => 'navbar-item' %>
+        <%= link_to "Logout", destroy_customer_session_path, method: :delete, :class => 'navbar-item'  %>
       <% else %>
-        <%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", new_customer_session_path, :class => 'navbar-link'  %>
+        <%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-item' %>
+        <%= link_to "Login", new_customer_session_path, :class => 'navbar-item'  %>
       <% end %>
     </p>
     <%# <ul class="nav">
@@ -25,7 +25,7 @@
     </ul> %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= link_to "Sign Up", new_customer_registration_path %>
+    <%# <%= link_to "Sign Up", new_customer_registration_path %>
 
 
     <%= yield %>

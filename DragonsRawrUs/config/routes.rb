@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pages
   devise_for :customers
    devise_scope :customer do
     get '/login' => 'devise/sessions#new'
