@@ -23,6 +23,7 @@
         <li><%= link_to "Sign up", new_customer_registration_path, :class => 'navbar-item' %></li>
         <li><%= link_to "Login", new_customer_session_path, :class => 'navbar-item'  %><li>
       <% end %>
+      <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "About Us", static_path(permalink: 'about-us') %></li>
       <li><%= link_to "Contact", static_path(permalink: 'contact') %></li>
       </ul>
