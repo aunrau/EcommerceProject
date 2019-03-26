@@ -1,4 +1,6 @@
-<p><%= will_paginate @products, list_classes: %w(pagination justify-content-end) %></p>
+<br>
+  <%= will_paginate @products, list_classes: %w(pagination justify-content-end), renderer: BootstrapPagination::Rails, previous_label: "Previous", next_label: "Next", inner_window: 1, outer_window: 0 %>
+<br>
 
 <h1>Product Listing</h1>
 
