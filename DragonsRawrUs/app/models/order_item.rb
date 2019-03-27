@@ -38,4 +38,3 @@ private
     self[:total_price] = quantity * self[:unit_price]
   end
 end
-end

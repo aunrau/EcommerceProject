@@ -9,12 +9,14 @@ class Order < ApplicationRecord
     before_create :set_order_status
     before_save :update_subtotal
 
-    validates :order_date, presence: true
+    # validates :order_date, presence: true
 
     def subtotal
         order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
-      end
+    end
+
     private
+
       def set_order_status
         self.order_status_id = 1
       end
@@ -23,4 +25,4 @@ class Order < ApplicationRecord
         self[:subtotal] = subtotal
       end
     end
-end
+

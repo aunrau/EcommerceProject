@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+  get 'order_items/update'
+  get 'order_items/destroy'
   get 'carts/show'
   resources :pages
   devise_for :customers
@@ -12,6 +15,8 @@ Rails.application.routes.draw do
   # resources :customers
   resources :products
   resources :search
+  resources :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
 
   get 'static/:permalink', to: 'pages#static', as: 'static'
   # get 'search_results', to: 'search#results', as: 'search_results'
