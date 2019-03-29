@@ -1,21 +1,19 @@
 Rails.application.routes.draw do
-  get 'order_items/create'
-  get 'order_items/update'
-  get 'order_items/destroy'
-  get 'carts/show'
   resources :pages
   devise_for :customers
    devise_scope :customer do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
   end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
   resources :orders
   # resources :customers
   resources :products
   resources :search
-  resources :cart, only: [:show]
+  resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
 
   get 'static/:permalink', to: 'pages#static', as: 'static'
