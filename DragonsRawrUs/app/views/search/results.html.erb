@@ -1,7 +1,19 @@
-<h1>Search Results</h1>
+<div class='container'>
 
-<h2><%= @query %> returned in <%= pluralize(@products.size, 'result') %>.</h2>
+  <h1>Search results</h1>
 
-<%= render @products %>
+  <% if(@query == "") %>
+    <h3>The search field was blank.</h3>
+  <% else %>
+    <h2> Search for <%= @query %> returned <%= pluralize(@results_found.size, 'result') %>.</h2>
+
+    <% @results_found.each do |result| %>
+      <div class="results">
+        <p><%= link_to result.product_name, result %></p>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
 
 <%= link_to 'Back', products_path %>

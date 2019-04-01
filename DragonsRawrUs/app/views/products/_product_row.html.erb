@@ -3,6 +3,16 @@
   <div class="row">
     <div class="col-xs-8">
       <h4><%= product.product_name %></small></h4>
+      <div class="product">
+    <p>Category: <%= product.category.name %></p>
+    <p>Dragon Description: <%= product.description %></p>
+    <p>Price: <%= number_to_currency product.price %></p>
+    <p>Quantity: <%= product.quantity %></p>
+    <% if product.image? %>
+      <p><%= image_tag product.image.thumb.url %></p>
+      <% end %>
+      <%= link_to 'Show', product %>
+  </div>
     </div>
     <div class="col-xs-4">
 

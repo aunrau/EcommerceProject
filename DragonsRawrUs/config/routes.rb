@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :order_items, only: [:create, :update, :destroy]
 
   get 'static/:permalink', to: 'pages#static', as: 'static'
-  # get 'search_results', to: 'search#results', as: 'search_results'
+  get 'search_results', to: 'search#results', as: 'search_results'
 
   post 'carts/checkout' => 'carts#create'
 

@@ -6,6 +6,7 @@ class CartsController < ApplicationController
   def show
     @order_items = current_order.order_items
   end
+
  def new
     @taxrate = current_user.province.gst + current_user.province.pst + @current_user.province.hst
     @tax = @before_price * (0.01 * @taxrate)

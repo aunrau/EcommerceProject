@@ -73,6 +73,13 @@
     <hr>
 
   </div>
+    <%= form_tag(search_results_path, method: "get") do %>
+      <%= label_tag(:q, "Search for: ") %>
+      <%= text_field_tag(:q) %>
+      <%= label_tag(:c, "in Category: ") %>
+      <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name),{include_blank: 'All Categories'}) %>
+      <%= submit_tag("Search") %>
+    <% end %>
 
     <%= yield %>
   </body>

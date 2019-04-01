@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
     has_many :orders
-    belongs_to :province
+    belongs_to :province, optional: true
 
     # validates :name, :address, :city, :country, presence: true
 end
