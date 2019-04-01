@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'static/:permalink', to: 'pages#static', as: 'static'
   # get 'search_results', to: 'search#results', as: 'search_results'
 
+  post 'carts/checkout' => 'carts#create'
+
   root to: 'products#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 OrderStatus.delete_all
 Product.destroy_all
+Category.destroy_all
 AdminUser.destroy_all
-
+Customer.destroy_all
 
 12.times do
     category = Category.create(name: Faker::Games::ElderScrolls.unique.race)
