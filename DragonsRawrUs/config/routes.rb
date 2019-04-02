@@ -10,17 +10,16 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :orders
-  # resources :customers
   resources :products
   resources :search
-  resource :cart, only: [:show]
+  resource :cart, only: [:show, :new]
   resources :order_items, only: [:create, :update, :destroy]
   resources :charges
 
   get 'static/:permalink', to: 'pages#static', as: 'static'
   get 'search_results', to: 'search#results', as: 'search_results'
-
-  get 'carts/checkout' => 'carts#create'
+  get 'carts/new', to: 'carts#new', as: 'carts_new'
+  post 'cart/checkout' => 'carts#create'
 
   root to: 'products#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

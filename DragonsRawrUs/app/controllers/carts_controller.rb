@@ -8,7 +8,7 @@ class CartsController < ApplicationController
   end
 
  def new
-    @taxrate = current_user.province.gst + current_user.province.pst + @current_user.province.hst
+    @taxrate = current_customer.province.gst + current_customer.province.pst + current_customer.province.hst
     @tax = @before_price * (0.01 * @taxrate)
     @total_price = @before_price + @tax
   end
@@ -28,7 +28,7 @@ class CartsController < ApplicationController
 
   def fetch_items
     @order = Order.new
-    @cart = ProductItem.find(session[:cart])
+    @cart = OrderItem.find(session[:cart])
     @before_price = 0
     @cart.each do |o|
       o.quantity.times do
@@ -45,8 +45,8 @@ class CartsController < ApplicationController
   end
 
   def complete_order
-    @order.product_items << ProductItem.find(session[:cart])
-    @order.customer = Customer.find_by(id: session[:customer_id])
+    @order.order_items << OrderItem.find(session[:cart])
+    @order.customer_id = Customer.find_by(id: session[:customer_id])
   end
 
   def clear
