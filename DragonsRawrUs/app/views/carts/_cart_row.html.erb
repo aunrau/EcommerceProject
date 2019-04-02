@@ -22,7 +22,9 @@
         </div>
         <h4 class="text-right">Total Price: <span style="color: green"><%= number_to_currency order_item.total_price %></span></h4>
       <% end %>
+      <h4 class="text-right"><%= link_to 'Checkout', 'carts/checkout' %></h4>
     </div>
 
+    <%= link_to 'Back', products_path %>
   </div>
 </div>

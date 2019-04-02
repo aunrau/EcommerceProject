@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 OrderStatus.delete_all
 Product.destroy_all
-Category.destroy_all
+Category.delete_all
 AdminUser.destroy_all
 Customer.destroy_all
 

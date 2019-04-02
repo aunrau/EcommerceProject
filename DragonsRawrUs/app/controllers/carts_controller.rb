@@ -38,14 +38,14 @@ class CartsController < ApplicationController
   end
 
   def initialize_order
-    @total_price = params[:total_price].to_f
+    @total_price = params[:total].to_f
     @tax = params[:tax].to_f
-    @order = Order.new(total_price: @total_price,
+    @order = Order.new(total: @total_price,
                        tax: @tax)
   end
 
   def complete_order
-    @order.product_items << ProductItem.find(session[:cart])
+    @order.order_items << Product.find(session[:cart])
     @order.customer = Customer.find_by(id: session[:customer_id])
   end
 

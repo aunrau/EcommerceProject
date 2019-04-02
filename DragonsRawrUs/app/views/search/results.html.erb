@@ -1,6 +1,8 @@
+<h1>Search Results</h1>
+
 <div class='container'>
 
-  <h1>Search results</h1>
+  <h1>Product search results</h1>
 
   <% if(@query == "") %>
     <h3>The search field was blank.</h3>
@@ -13,7 +15,5 @@
       </div>
     <% end %>
   <% end %>
-
 </div>
-
 <%= link_to 'Back', products_path %>
