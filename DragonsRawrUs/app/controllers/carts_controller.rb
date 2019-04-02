@@ -45,7 +45,7 @@ class CartsController < ApplicationController
   end
 
   def complete_order
-    @order.order_items << Product.find(session[:cart])
+    @order.product_items << ProductItem.find(session[:cart])
     @order.customer = Customer.find_by(id: session[:customer_id])
   end
 

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :search
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
+  resources :charges
 
   get 'static/:permalink', to: 'pages#static', as: 'static'
   get 'search_results', to: 'search#results', as: 'search_results'
