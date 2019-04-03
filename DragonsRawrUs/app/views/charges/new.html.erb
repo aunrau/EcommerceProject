@@ -6,13 +6,13 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: $<%= current_order.total_previous_change %></span>
+      <span>Amount: $<%= @total_price %></span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
-          data-amount=OrderItems.total_price
+          data-amount=@total_price
           data-locale="auto"></script>
 <% end %>
