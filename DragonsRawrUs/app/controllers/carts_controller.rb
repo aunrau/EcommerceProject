@@ -38,9 +38,9 @@ class CartsController < ApplicationController
   end
 
   def initialize_order
-    @total_price = params[:total].to_f
+    @total_price = params[:total_price].to_f
     @tax = params[:tax].to_f
-    @order = Order.new(total: @total_price,
+    @order = Order.new(order_total: @total_price,
                        tax: @tax)
   end
 
