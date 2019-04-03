@@ -8,7 +8,7 @@ class CartsController < ApplicationController
   end
 
  def new
-    @taxrate = current_customer.province.gst + current_customer.province.pst + current_customer.province.hst
+    @taxrate = current_customer.province.gst.to_f + current_customer.province.pst.to_f + current_customer.province.hst.to_f
     @tax = @before_price * (0.01 * @taxrate)
     @total_price = @before_price + @tax
   end

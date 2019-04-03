@@ -3,7 +3,12 @@
                 <div class=form-group>
                     <label>Before Taxes</label>
                     <%= text_field_tag nil, @before_price, class: 'form-control mr-sm-2', :readonly => true %>
-
+                    <label>GST</label>
+                    <%= text_field_tag nil, current_customer.province.gst, class: 'form-control mr-sm-2', :readonly => true %>
+                    <label>PST</label>
+                    <%= text_field_tag nil, current_customer.province.pst, class: 'form-control mr-sm-2', :readonly => true %>
+                    <label>HST</label>
+                    <%= text_field_tag nil, current_customer.province.hst, class: 'form-control mr-sm-2', :readonly => true %>
                     <label>Applied Taxes</label>
                     <%= text_field_tag :tax, @tax, class: 'form-control mr-sm-2', :readonly => true %>
                     <%= label_tag :total_price %>

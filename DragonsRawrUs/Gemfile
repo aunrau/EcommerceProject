@@ -39,6 +39,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'stripe'
+gem 'country_select', require: 'country_select_without_sort_alphabetical'
 
 gem 'bootstrap', '~> 4.3.1'
 
