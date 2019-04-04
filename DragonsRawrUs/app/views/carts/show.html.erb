@@ -1,5 +1,6 @@
 <div class="shopping-cart">
   <%= render "shopping_cart" %>
+  <h4 class="text-right"><%= link_to 'Payment', 'charges/new' %></h4>
   <h4 class="text-right"><%= link_to 'Checkout', 'carts/new' %></h4>
   <%= link_to 'Back', products_path %>
 </div>
