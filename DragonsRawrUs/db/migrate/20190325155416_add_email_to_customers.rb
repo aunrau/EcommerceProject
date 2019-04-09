@@ -1,5 +1,5 @@
 class AddEmailToCustomers < ActiveRecord::Migration[5.2]
-  def change
-    add_column :customers, :email, :string
-  end
+  # def change
+  #   add_column :customers, :email, :string
+  # end
 end
